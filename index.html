@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://text-html.com/">
+<title>Online Text to HTML Converter</title>
+<meta name="description" content="Convert your visual text documents to HTML code instantly. Edit and clean your markup with a couple of clicks.">
+<meta name="keywords" content="text,html,converter">
+<meta property="og:title" content="Text to HTML Converter">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Convert your visual text documents to HTML code instantly. Edit and clean your markup with a couple of clicks.">
+<meta property="og:url" content="https://text-html.com/">
+<meta property="og:image" content="http://text-html.com/pics/paste-text-here-convert-html.jpg">
+<script src="/tiny/tinymce.min.js"></script>
+<script src="/tiny/plugins/table/plugin.min.js"></script>
+<script src="/tiny/plugins/paste/plugin.min.js"></script>
+<script src="/jquery/jquery-1.10.2.min.js"></script>
+<script src="/jquery/jquery-ui.min.js"></script>
+<script src="/syntax/lib/codemirror.js"></script>
+<script src="/syntax/addon/fold/xml-fold.js"></script>
+<script src="/syntax/addon/edit/matchtags.js"></script>
+<script src="/syntax/addon/selection/active-line.js"></script>
+<script src="/syntax/mode/xml/xml.js"></script>
+<link href="/jquery/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<link rel="stylesheet" href="/syntax/doc/docs.css">
+<link rel="stylesheet" href="/syntax/lib/codemirror.css">
+<script src="/texthtml.js"></script>
+<link rel="stylesheet" type="text/css" href="texthtml.css?y=2">
+</head>
+<body>
+	<div id="wrapTop">		
+<div class="programIsWorking">
+</div>	
+<div class="centered">
+	<h2><img src="/pics/logo.png" alt="text html converter logo" class="logo"> Text <span>-</span> HTML</h2>
+	<div class="sourceCtrl">
+		<div class="htmlCleanList">
+			<div>
+				<div class="htmlCo" id="Clean001" data-option="1">Inline styles</div>
+				<div data-option="1" class="doOptionNow" title="Remove inline styles now" ></div>
+			</div>
+			<div>
+				<div class="htmlCo" id="Clean002" data-option="2">Classes &amp; IDs</div>
+				<div data-option="2" class="doOptionNow" title="Delete classes and IDs now" ></div>
+			</div>
+			<div>
+				<div class="htmlCo" id="Clean003" data-option="3">Empty tags</div>
+				<div data-option="3" class="doOptionNow" title="Delete empty tags now" ></div>
+			</div>
+			<div>
+				<div class="htmlCo" id="Clean004" data-option="4">Tags with 1 space </div>
+				<div data-option="4" class="doOptionNow" title="Delete tags with one space now" ></div>
+			</div>
+			<div>
+				<div class="htmlCo" id="Clean005" data-option="5">Successive spaces</div>
+				<div data-option="5" class="doOptionNow" title="Delete successive spaces now" ></div>
+			</div>
+			<div>
+				<div class="htmlCo" id="Clean006" data-option="6">Comments</div>
+				<div data-option="6" class="doOptionNow" title="Delete all comments now" ></div>
+			</div>
+			<div>
+				<div class="htmlCo" id="Clean007" data-option="7">Tag attributes </div>
+				<div data-option="7" class="doOptionNow" title="Delete every tag attribute now" ></div>
+			</div>
+			<div>
+				<div class="htmlCo" id="Clean008" data-option="8">All tags</div>
+				<div data-option="8" class="doOptionNow" title="Delete all tags now" ></div>
+			</div>
+		</div>
+	</div>
+	<div id="textEditorWrapper">
+		<form method="post">
+			<textarea id="textEditor" name="textEditor"></textarea>
+		</form>
+	</div>
+	<div id="htmlWrapper">
+		<div id="htmlInsideWrapper">
+
+			<div id="codemirrorEditor"></div>
+			<script>
+				var sourceEditorFricc = CodeMirror(document.getElementById("codemirrorEditor"), {
+					value: "",
+					lineNumbers: true,
+					styleActiveLine: true,
+					mode: "text/html",
+					lineWrapping: true,
+					matchTags: {bothTags: true},
+				  });		
+				sourceEditorFricc.on("change", function() {
+					inputChanged();
+				  });
+			</script>
+			<div class="belowSourceEditor">
+				<div class="inline">
+					<div id="inputLength"></div>
+					<a class="loadDemoText">Load&nbsp;Demo</a>
+					<a class="loremIpsum">Lorem&nbsp;Ipsum</a>
+				</div>
+				<div class="sourceIcons">
+					<a title="Undo" id="undo">Undo</a>
+					<a title="New page"  id="clearPage">Clear page</a>
+					<a title="Set code indentation" id="intentationSet">Visualize tag hierarchy</a>
+					<a title="Compress HTML" class="sourceMinimizer">Compress</a>
+					<a title="Encoding On/Off" id="characterEscaping">Enable / disable character encoding</a>
+				</div>
+				<div id="mainCleanerButton">
+					<div class="mainButtonStyle doSourceClean" title="Make all checked cleaning options">
+						Clean
+						<div id="hourglassAnimation"></div>
+					</div>
+				</div>
+				<div class="clearBoth"></div>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+	<footer>
+<div class="footer">
+	We use cookies to collect visitor&nbsp;analytics.
+	<br>
+	Get in touch: <img src="/pics/getintouch.png" alt="hello">
+	<br>
+	<strong>&copy;&nbsp;text-html.com</strong>
+</div>
+	</footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5e24da76a40341bc8a7f3f9938728095","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
