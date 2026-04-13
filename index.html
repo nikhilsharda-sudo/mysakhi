@@ -92,6 +92,35 @@
 </head>
 <body>
 
+
+<!-- SITE LOCK -->
+<div id="siteLock" style="display:flex; position:fixed; top:0; left:0; width:100%; height:100%; background:#fff7f9; z-index:99999; align-items:center; justify-content:center; flex-direction:column;">
+  <div style="text-align:center; padding:2rem;">
+    <div style="font-size:3rem; margin-bottom:1rem;">🔐</div>
+    <h2 style="font-family:'Dancing Script',cursive; font-size:2.2rem; color:#c45572; margin-bottom:0.5rem;">Private Page</h2>
+    <p style="font-family:'Playfair Display',serif; color:#b07085; margin-bottom:2rem; font-style:italic;">This page is private. Enter the access code to continue.</p>
+    <div style="background:white; border-radius:20px; padding:2rem; box-shadow:0 8px 40px rgba(228,120,150,0.18); border:1.5px solid #f5c2ce; max-width:340px; margin:0 auto;">
+      <input type="password" id="sitePassInput" placeholder="enter access code..." style="width:100%; padding:0.9rem 1.2rem; border:2px solid #f9c6d0; border-radius:50px; font-size:1rem; text-align:center; outline:none; color:#c45572; background:#fde8ed; letter-spacing:3px; font-family:'Lato',sans-serif;" />
+      <div id="sitePassError" style="color:#e06080; font-size:0.85rem; margin-top:0.6rem; height:1.2rem;"></div>
+      <button onclick="checkSitePass()" style="margin-top:1rem; padding:0.9rem 2.5rem; background:linear-gradient(135deg,#e8829a,#c45572); color:white; border:none; border-radius:50px; font-size:1rem; cursor:pointer; font-family:'Lato',sans-serif; letter-spacing:1px; box-shadow:0 4px 20px rgba(196,85,114,0.3);">Enter ✨</button>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('sitePassInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkSitePass();
+  });
+  function checkSitePass() {
+    const val = document.getElementById('sitePassInput').value.trim().toLowerCase().replace(/\s+/g,'');
+    if (val === 'tosakhi') {
+      document.getElementById('siteLock').style.display = 'none';
+    } else {
+      document.getElementById('sitePassError').textContent = 'Wrong code. Try again! 🌸';
+      document.getElementById('sitePassInput').value = '';
+    }
+  }
+</script>
+
 <div class="petals-bg" id="petals"></div>
 
 <!-- PAGE 1: LOCK -->
